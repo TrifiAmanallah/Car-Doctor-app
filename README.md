@@ -3,7 +3,7 @@ C’est une application Android qui rappel à l’utilisateur les dates ou il do
 
 # Plus de détaills
 
-https://github.com/TrifiAmanallah/Car-Doctor-app/Rapport_de_projet.pdf
+![Alt text](https://github.com/TrifiAmanallah/Car-Doctor-app/Rapport_de_projet.pdf)
 
 # Screen Shots
 ![picture](Screen_Shots/Capture_1.png)
