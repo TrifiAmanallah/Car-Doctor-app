@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/background_menu"
+    tools:context="com.example.car_doctor.Demarrage" >
+
+    <ImageButton
+        android:id="@+id/bouton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/bt2"
+        android:layout_marginRight="18dp"
+        android:layout_toLeftOf="@+id/bt2"
+        android:background="@null"
+        android:src="@drawable/start" />
+     <ImageButton
+        android:id="@+id/bt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bt5"
+        android:layout_centerVertical="true"
+        android:background="@null"
+        android:src="@drawable/kilometre" />
+    <ImageButton
+        android:id="@+id/bt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/bt2"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/bt2"
+        android:background="@null"
+        android:src="@drawable/formulaire" />
+    <ImageButton
+        android:id="@+id/bt4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bouton1"
+        android:layout_alignTop="@+id/bt5"
+        android:background="@null"
+        android:src="@drawable/notification" />
+    <ImageButton
+        android:id="@+id/bt5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:background="@null"
+        android:src="@drawable/reset" />
+
+    <ImageButton
+        android:id="@+id/bt7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bt3"
+        android:layout_alignTop="@+id/bt5"
+        android:background="@null"
+        android:src="@drawable/achat" />
+
+    <ImageButton
+        android:id="@+id/bt6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="26dp"
+        android:layout_toLeftOf="@+id/bt3"
+        android:background="@null"
+        android:src="@drawable/exit" />
+   
+</RelativeLayout>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Change Widget Type" description="Change Widget Type" file="/Line_Follower/res/layout/activity_start_activity.xml" flags="6" id="com.android.ide.eclipse.adt.refactoring.changeview" proj="/Line_Follower" sel-end="1221" sel-start="949" stamp="1422606979272" type="android.widget.ImageView"/>
+</session>

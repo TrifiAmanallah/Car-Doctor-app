@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Car_Doctor</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_formulaire">Formulaire</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_demarrage">Demarrage</string>
+    <string name="title_activity_kilometrage">Kilometrage</string>
+    <string name="title_activity_liste_enfant">Liste_enfant</string>
+    <string name="title_activity_liste_parent">Liste_parent</string>
+    <string name="title_activity_diagnostique">Diagnostique</string>
+    <string name="title_activity_variables">Variables</string>
+    <string-array name="Marks_array">
+        <item>M</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+     </string-array>
+</resources>

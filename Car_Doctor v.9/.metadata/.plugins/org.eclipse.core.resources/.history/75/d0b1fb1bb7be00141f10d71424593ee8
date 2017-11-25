@@ -1,0 +1,339 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_saisie"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.car_doctor.Formulaire" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="La marque de la voiture: "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<Spinner
+    android:id="@+id/Marks_spinner"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" />
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="Date de dernier vidange : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+
+<DatePicker
+    android:id="@+id/datePicker1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:calendarViewShown="false"
+    android:color="#fcfcf5"
+    />
+
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="le Killometrge de dernier vidange : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<EditText 
+android:id="@+id/editText1"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:textColor="#00fff9"
+android:inputType="numberDecimal"
+android:maxLength="7"
+/>
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="Date de dernier changement des bougies d'allumage : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<DatePicker
+android:id="@+id/datePicker2"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:calendarViewShown="false"
+ />
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="le Killometrge de dernier changement des bougies d'allumage : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<EditText 
+android:id="@+id/editText2"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:textColor="#00fff9"
+android:inputType="numberDecimal"
+android:maxLength="7"
+/>
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="Date de dernier changement de filtres a huile : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<DatePicker
+android:id="@+id/datePicker3"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:calendarViewShown="false"
+ 
+ />
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="le Killometrge de dernier changement de filtres a huile : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<EditText 
+android:id="@+id/editText3"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:textColor="#00fff9"
+android:inputType="numberDecimal"
+android:maxLength="7"
+/>
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="Date de dernier changement de filtre a air : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<DatePicker
+android:id="@+id/datePicker4"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:calendarViewShown="false"
+ />
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="le Killometrge de dernier changement de filtre a air : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<EditText 
+android:id="@+id/editText4"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:textColor="#00fff9"
+android:inputType="numberDecimal"
+android:maxLength="7"
+/>
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="Date de dernier changement de filtre d'habitacle : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<DatePicker
+android:id="@+id/datePicker5"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:calendarViewShown="false"
+ />
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="le Killometrge de dernier changement de filtre d'habitacle :"
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<EditText 
+android:id="@+id/editText5"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:textColor="#00fff9"
+android:inputType="numberDecimal"
+android:maxLength="7"
+/>
+
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="Date de dernier changement de huile de la boite vitesse : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<DatePicker
+android:id="@+id/datePicker7"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:calendarViewShown="false"       
+ />
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="le Killometrge de dernier changement de huile de la boite vitesse : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<EditText 
+android:id="@+id/editText7"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:textColor="#00fff9"
+android:inputType="numberDecimal"
+android:maxLength="6"
+/>
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="Date de dernier changement de courroie crantée : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<DatePicker
+android:id="@+id/datePicker8"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:calendarViewShown="false"
+ />
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="le Killometrge de dernier changement de courroie crantée : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<EditText 
+android:id="@+id/editText8"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:textColor="#00fff9"
+android:inputType="numberDecimal"
+android:maxLength="7"
+/>
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="Date de dernier changement de huile de disque freine : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<DatePicker
+android:id="@+id/datePicker9"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:calendarViewShown="false"
+ />
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="le Killometrge de dernier changement de huile de disque freine : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<EditText 
+android:id="@+id/editText9"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:textColor="#00fff9"
+android:inputType="numberDecimal"
+android:maxLength="7"
+/>
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="Date de dernier visite technique : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<DatePicker
+android:id="@+id/datePicker10"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:calendarViewShown="false"
+
+ />
+
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="Date de dernier paymenet d'assurance : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<DatePicker
+android:id="@+id/datePicker11"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:calendarViewShown="false"
+
+ />
+<TextView 
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" 
+android:text="Date du dernier changement de suspension : "
+android:textStyle="bold"
+android:textColor="#ff009a"
+android:gravity="center"
+/>
+<DatePicker
+android:id="@+id/datePicker12"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:calendarViewShown="false"
+
+ />
+         <Button 
+android:id="@+id/enregistrer"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:textColor="#fcfcf5"
+android:background="#2882ff"
+android:text="Enregistrer" />
+
+        </LinearLayout>
+
+        </ScrollView>
+
+</LinearLayout>
+    

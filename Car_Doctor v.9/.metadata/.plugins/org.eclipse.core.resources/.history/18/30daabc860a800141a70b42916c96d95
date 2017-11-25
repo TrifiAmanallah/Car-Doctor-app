@@ -1,0 +1,96 @@
+package Created_by_TA.line_follower;
+
+
+import com.example.car_doctor.Demarrage;
+
+import android.support.v7.app.ActionBarActivity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class Settings_activity extends ActionBarActivity {
+	
+	public static final String MyPREFERENCES = "MyPrefss" ;
+	public static final String  old_derivativ="Key_old_derivativ"; 
+	public static final String  old_proportional="Key_old_proportional"; 
+	public static final String  old_integral="Key_old_integral"; 
+	SharedPreferences sharedpreferences;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_settings_activity);
+		final EditText EditText_derivativ;
+		EditText_derivativ= (EditText) findViewById(R.id.derivativ);
+		final EditText EditText_proportional;
+		EditText_proportional= (EditText) findViewById(R.id.proportional);
+		final EditText EditText_integral;
+		EditText_integral= (EditText) findViewById(R.id.integral);
+		
+		sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+		final int ancien_derivativ=sharedpreferences.getInt(old_derivativ,0);
+		EditText_derivativ.setText( String.valueOf(ancien_derivativ));
+		
+		final int ancien_proportional=sharedpreferences.getInt(old_proportional,0);
+		EditText_proportional.setText( String.valueOf(ancien_proportional));
+		
+		final int ancien_integral=sharedpreferences.getInt(old_integral,0);
+		EditText_integral.setText( String.valueOf(ancien_integral));
+		
+		
+		
+		final Button Bouton_Enregistrement = (Button)findViewById(R.id.enregistrer);
+		Bouton_Enregistrement.setOnClickListener(			 
+	    		new View.OnClickListener()
+
+	    		{
+
+	                    public void onClick(View aView)
+	                    {
+	                    	int nouveau_derivativ=Integer.parseInt(EditText_derivativ.getText().toString());
+	                		int nouveau_proportional=Integer.parseInt(EditText_proportional.getText().toString());
+	                		int nouveau_integral=Integer.parseInt(EditText_integral.getText().toString());
+	                   	
+	                    	Editor editor = sharedpreferences.edit();
+              	            editor.putInt(old_derivativ, nouveau_derivativ);
+              	            editor.putInt(old_proportional, nouveau_proportional);
+              	            editor.putInt(old_integral, nouveau_integral);
+              	            editor.commit();
+              	          Toast.makeText(getApplicationContext(), "Successful saving" , 
+	        				      Toast.LENGTH_LONG).show();   
+	                    	      Intent toAnotherActivity = new Intent(aView.getContext(),Start_activity.class);
+	                              startActivityForResult(toAnotherActivity, 0);
+	                    }
+	    		}
+	                                             );
+	
+		
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.settings_activity, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+}

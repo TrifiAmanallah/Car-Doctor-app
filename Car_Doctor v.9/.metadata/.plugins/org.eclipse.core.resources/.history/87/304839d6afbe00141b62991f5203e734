@@ -1,0 +1,243 @@
+package com.example.car_doctor;
+
+import java.util.Calendar;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+public class Formulaire extends ActionBarActivity {
+
+	DatabaseHandler gestionnaire_BD = new DatabaseHandler(this);
+	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_chargement);
+		
+		Spinner spinner = (Spinner) findViewById(R.id.marks_spinner);
+		// Create an ArrayAdapter using the string array and a default spinner layout
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+		        R.array.planets_array, android.R.layout.simple_spinner_item);
+		// Specify the layout to use when the list of choices appears
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		// Apply the adapter to the spinner
+		spinner.setAdapter(adapter);
+		
+		//Recuperation des anciennes valeurs a partir de la BD
+		  final PIECES vidange =gestionnaire_BD.getPiece(1);
+		  final PIECES bougies =gestionnaire_BD.getPiece(2);
+		  final PIECES filtre_huil =gestionnaire_BD.getPiece(3);
+		  final PIECES filtre_air =gestionnaire_BD.getPiece(4);
+		  final PIECES filtre_habitacle =gestionnaire_BD.getPiece(5);
+		  final PIECES huil_boite_vitesse =gestionnaire_BD.getPiece(6);
+		  final PIECES visite_technique =gestionnaire_BD.getPiece(7);
+		  final PIECES assurance =gestionnaire_BD.getPiece(8);
+		  final PIECES courroie =gestionnaire_BD.getPiece(9);
+		  final PIECES disque_frein =gestionnaire_BD.getPiece(10);
+		  final PIECES suspension =gestionnaire_BD.getPiece(11);
+		//Attendre quelques seconde avant l'affichage du formulaire
+		int secondsDelayed = 3;
+        new Handler().postDelayed(new Runnable() {
+        public void run() {
+        setContentView(R.layout.activity_formulaire);
+  
+		//Recuperation des views
+		  final DatePicker date_vidange = (DatePicker) findViewById(R.id.datePicker1);
+		  final DatePicker date_bougies = (DatePicker) findViewById(R.id.datePicker2);
+		  final DatePicker date_filtre_huil = (DatePicker) findViewById(R.id.datePicker3);
+		  final DatePicker date_filtre_air = (DatePicker) findViewById(R.id.datePicker4);
+		  final DatePicker date_filtre_habitacle= (DatePicker) findViewById(R.id.datePicker5);
+		  final DatePicker date_huil_boite_vitesse = (DatePicker) findViewById(R.id.datePicker7);
+		  final DatePicker date_courroie = (DatePicker) findViewById(R.id.datePicker8);
+		  final DatePicker date_disque_frein = (DatePicker) findViewById(R.id.datePicker9);
+		  final DatePicker date_visite_technique = (DatePicker) findViewById(R.id.datePicker10);
+		  final DatePicker date_fin_assurance = (DatePicker) findViewById(R.id.datePicker11);
+		  final DatePicker date_suspension = (DatePicker) findViewById(R.id.datePicker12);
+
+	      final EditText km_vidange = (EditText)findViewById(R.id.editText1);
+	      final EditText km_bougies = (EditText)findViewById(R.id.editText2);
+	      final EditText km_filtre_huil = (EditText)findViewById(R.id.editText3);
+	      final EditText km_filtre_air = (EditText)findViewById(R.id.editText4);
+	      final EditText km_filtre_habitacle = (EditText)findViewById(R.id.editText5);
+	      final EditText km_huil_boite_vitesse = (EditText)findViewById(R.id.editText7);
+	      final EditText km_courroie = (EditText)findViewById(R.id.editText8);
+	      final EditText km_disque_frein = (EditText)findViewById(R.id.editText9);
+	      
+	      //afficher les anciennes valeurs par default
+	      km_vidange.setText(String.valueOf(vidange.getKilometrage()));
+	      km_bougies.setText(String.valueOf(bougies.getKilometrage()));
+	      km_filtre_huil.setText(String.valueOf(filtre_huil.getKilometrage()));
+	      km_filtre_air.setText(String.valueOf(filtre_air.getKilometrage()));
+	      km_filtre_habitacle.setText(String.valueOf(filtre_habitacle.getKilometrage()));
+	      km_huil_boite_vitesse.setText(String.valueOf(huil_boite_vitesse.getKilometrage()));
+	      km_courroie.setText(String.valueOf(courroie.getKilometrage()));
+	      km_disque_frein.setText(String.valueOf(disque_frein.getKilometrage()));
+	      
+	      date_vidange.updateDate(vidange._annee,vidange._mois,vidange._jour);
+	      date_bougies.updateDate(bougies._annee,bougies._mois,bougies._jour);
+	      date_filtre_huil.updateDate(filtre_huil._annee,filtre_huil._mois,filtre_huil._jour);
+	      date_filtre_air.updateDate(filtre_air._annee,filtre_air._mois,filtre_air._jour);
+	      date_filtre_habitacle.updateDate(filtre_habitacle._annee,filtre_habitacle._mois,filtre_habitacle._jour);
+	      date_huil_boite_vitesse.updateDate(huil_boite_vitesse._annee,huil_boite_vitesse._mois,huil_boite_vitesse._jour);
+	      date_courroie.updateDate(courroie._annee,courroie._mois,courroie._jour);
+	      date_disque_frein.updateDate(disque_frein._annee,disque_frein._mois,disque_frein._jour);
+	      date_visite_technique.updateDate(visite_technique._annee,visite_technique._mois,visite_technique._jour);
+	      date_fin_assurance.updateDate(assurance._annee,assurance._mois,assurance._jour);
+	      date_suspension.updateDate(suspension._annee,suspension._mois,suspension._jour);
+
+	      
+	      
+		//gestion du bouton enregistrer
+		  final Button Bouton_Enregistrement_formulaire = (Button)findViewById(R.id.enregistrer);
+	      Bouton_Enregistrement_formulaire.setOnClickListener(			 
+			    		new View.OnClickListener()
+			    		{
+		                   public void onClick(View aView)
+			                {
+		                	  //Recuperation des nouvelles valeurs saisies 
+		                	  
+		                	  //teste si la saisie est vide
+		                	  if(km_vidange.getText().toString().equals(""))  km_vidange.setText(String.valueOf(vidange.getKilometrage()));
+		                	  if(km_bougies.getText().toString().equals(""))  km_bougies.setText(String.valueOf(bougies.getKilometrage()));
+		                	  if(km_filtre_huil.getText().toString().equals(""))  km_filtre_huil.setText(String.valueOf(filtre_huil.getKilometrage()));
+		                	  if(km_filtre_air.getText().toString().equals(""))  km_filtre_air.setText(String.valueOf(filtre_air.getKilometrage()));
+		                	  if(km_filtre_habitacle.getText().toString().equals(""))  km_filtre_habitacle.setText(String.valueOf(filtre_habitacle.getKilometrage()));
+		                	  if(km_huil_boite_vitesse.getText().toString().equals(""))  km_huil_boite_vitesse.setText(String.valueOf(huil_boite_vitesse.getKilometrage()));
+		                	  if(km_courroie.getText().toString().equals(""))  km_courroie.setText(String.valueOf(courroie.getKilometrage()));
+		                	  if(km_disque_frein.getText().toString().equals(""))  km_disque_frein.setText(String.valueOf(disque_frein.getKilometrage()));
+
+		                	  
+		                	  PIECES nouveau_vidange =new PIECES(1,date_vidange.getDayOfMonth(),date_vidange.getMonth(),date_vidange.getYear(),Integer.parseInt(km_vidange.getText().toString()));
+			          	      PIECES nouveau_bougies =new PIECES(2,date_bougies.getDayOfMonth(), date_bougies.getMonth(), date_bougies.getYear(),Integer.parseInt(km_bougies.getText().toString()));
+			        	      PIECES nouveau_filtre_huil =new PIECES(3,date_filtre_huil.getDayOfMonth(),date_filtre_huil.getMonth(),date_filtre_huil.getYear(),Integer.parseInt(km_filtre_huil.getText().toString()));
+			        	      PIECES nouveau_filtre_air =new PIECES(4,date_filtre_air.getDayOfMonth(),date_filtre_air.getMonth(),date_filtre_air.getYear(),Integer.parseInt(km_filtre_air.getText().toString()));
+			        	      PIECES nouveau_filtre_habitacle =new PIECES(5,date_filtre_habitacle.getDayOfMonth(),date_filtre_habitacle.getMonth(),date_filtre_habitacle.getYear(),Integer.parseInt( km_filtre_habitacle.getText().toString()));
+			        	      PIECES nouveau_huil_boite_vitesse =new PIECES(6,date_huil_boite_vitesse.getDayOfMonth(),date_huil_boite_vitesse.getMonth(),date_huil_boite_vitesse.getYear(),Integer.parseInt(km_huil_boite_vitesse.getText().toString()));
+			        	      PIECES nouveau_visite_technique =new PIECES(7,date_visite_technique.getDayOfMonth(),date_visite_technique.getMonth(),date_visite_technique.getYear(),0);
+			        	      PIECES nouveau_assurance =new PIECES(8,date_fin_assurance.getDayOfMonth(),date_fin_assurance.getMonth(),date_fin_assurance.getYear(),0);
+			        	      PIECES nouveau_courroie =new PIECES(9,date_courroie.getDayOfMonth(),date_courroie.getMonth(),date_courroie.getYear(),Integer.parseInt(km_courroie.getText().toString()));
+			        	      PIECES nouveau_disque_frein =new PIECES(10,date_disque_frein.getDayOfMonth(),date_disque_frein.getMonth(),date_disque_frein.getYear(),Integer.parseInt(km_disque_frein.getText().toString()));
+			        	      PIECES nouveau_suspension =new PIECES(11,date_suspension.getDayOfMonth(),date_suspension.getMonth(),date_suspension.getYear(),0);
+
+			        	      //Teste sur les saisies
+		                	  Calendar ancienne_date=Calendar.getInstance();
+		                	  Calendar nouvelle_date=Calendar.getInstance();
+		                	        //test saisie vidange
+		                	  ancienne_date.set(vidange._annee,vidange._mois,vidange._jour);
+		                	  nouvelle_date.set(nouveau_vidange._annee,nouveau_vidange._mois,nouveau_vidange._jour);
+		                	  if(ancienne_date.after(nouvelle_date)) Toast.makeText(getApplicationContext(), "Erreur saisie date dernière vidange" ,Toast.LENGTH_LONG).show();  
+		                	  else if(vidange._kilometrage > nouveau_vidange._kilometrage) Toast.makeText(getApplicationContext(), "Erreur saisie kilometrage dernière vidange" ,Toast.LENGTH_LONG).show();
+		                	  else { 
+		                            //test saisie bougies
+		                		    ancienne_date.set(bougies._annee,bougies._mois,bougies._jour);
+		                	        nouvelle_date.set(nouveau_bougies._annee,nouveau_bougies._mois,nouveau_bougies._jour);
+		                	       if(ancienne_date.after(nouvelle_date)) Toast.makeText(getApplicationContext(), "Erreur saisie date dernier changement bougies" ,Toast.LENGTH_LONG).show();  
+				                   else if(bougies._kilometrage > nouveau_bougies._kilometrage) Toast.makeText(getApplicationContext(), "Erreur saisie kilometrage dernier changement bougies" ,Toast.LENGTH_LONG).show();
+				              else {
+				            	    //test saisie filtre à huil
+				            	    ancienne_date.set(filtre_huil._annee,filtre_huil._mois,filtre_huil._jour);
+		                	        nouvelle_date.set(nouveau_filtre_huil._annee,nouveau_filtre_huil._mois,nouveau_filtre_huil._jour);
+		                	        if(ancienne_date.after(nouvelle_date)) Toast.makeText(getApplicationContext(), "Erreur saisie date dernier changement filtre à huil" ,Toast.LENGTH_LONG).show();  
+				                    else if(filtre_huil._kilometrage > nouveau_filtre_huil._kilometrage) Toast.makeText(getApplicationContext(), "Erreur saisie kilometrage dernier changement filtre à huil" ,Toast.LENGTH_LONG).show();
+				              else  {  
+				     				//test saisie filtre à air
+				            	    ancienne_date.set(filtre_air._annee,filtre_air._mois,filtre_air._jour);
+		                	        nouvelle_date.set(nouveau_filtre_air._annee,nouveau_filtre_air._mois,nouveau_filtre_air._jour);
+		                	        if(ancienne_date.after(nouvelle_date)) Toast.makeText(getApplicationContext(), "Erreur saisie date dernier changement filtre à air" ,Toast.LENGTH_LONG).show();  
+				                    else if(filtre_air._kilometrage > nouveau_filtre_air._kilometrage) Toast.makeText(getApplicationContext(), "Erreur saisie kilometrage dernier changement filtre à air" ,Toast.LENGTH_LONG).show();
+				              else  {
+				            	    //test saisie filtre d'habitacle
+				            	    ancienne_date.set(filtre_habitacle._annee,filtre_habitacle._mois,filtre_habitacle._jour);
+		                	        nouvelle_date.set(nouveau_filtre_habitacle._annee,nouveau_filtre_habitacle._mois,nouveau_filtre_habitacle._jour);
+		                	        if(ancienne_date.after(nouvelle_date)) Toast.makeText(getApplicationContext(), "Erreur saisie date dernier changement filtre d'habitacle" ,Toast.LENGTH_LONG).show();  
+				                    else if(filtre_habitacle._kilometrage > nouveau_filtre_habitacle._kilometrage) Toast.makeText(getApplicationContext(), "Erreur saisie kilometrage dernier changement filtre d'habitacle" ,Toast.LENGTH_LONG).show();
+				              else  {
+					                //test saisie huil boite vitesse
+					                 ancienne_date.set(huil_boite_vitesse._annee,huil_boite_vitesse._mois,huil_boite_vitesse._jour);
+			                	     nouvelle_date.set(nouveau_huil_boite_vitesse._annee,nouveau_huil_boite_vitesse._mois,nouveau_huil_boite_vitesse._jour);
+			                         if(ancienne_date.after(nouvelle_date)) Toast.makeText(getApplicationContext(), "Erreur saisie date dernier changement huil boite vitesse" ,Toast.LENGTH_LONG).show();  
+					                 else if(huil_boite_vitesse._kilometrage > huil_boite_vitesse._kilometrage) Toast.makeText(getApplicationContext(), "Erreur saisie kilometrage dernier changement huil boite vitesse" ,Toast.LENGTH_LONG).show();
+					          else  {
+					            	//test saisie courroie 
+						             ancienne_date.set(courroie._annee,courroie._mois,courroie._jour);
+				                     nouvelle_date.set(nouveau_courroie._annee,nouveau_courroie._mois,nouveau_courroie._jour);
+				                     if(ancienne_date.after(nouvelle_date)) Toast.makeText(getApplicationContext(), "Erreur saisie date dernier changement courroie crantée" ,Toast.LENGTH_LONG).show();  
+						             else if(courroie._kilometrage > nouveau_courroie._kilometrage) Toast.makeText(getApplicationContext(), "Erreur saisie kilometrage dernier changement courroie crantée" ,Toast.LENGTH_LONG).show();
+				              else  {
+				            	    //test saisie disque frein 
+						             ancienne_date.set(disque_frein._annee,disque_frein._mois,disque_frein._jour);
+				                     nouvelle_date.set(nouveau_disque_frein._annee,nouveau_disque_frein._mois,nouveau_disque_frein._jour);
+				                     if(ancienne_date.after(nouvelle_date)) Toast.makeText(getApplicationContext(), "Erreur saisie date dernier changement huil de disque frein" ,Toast.LENGTH_LONG).show();  
+						             else if(disque_frein._kilometrage > nouveau_disque_frein._kilometrage) Toast.makeText(getApplicationContext(), "Erreur saisie kilometrage dernier changement huil de disque frein" ,Toast.LENGTH_LONG).show();
+				              else  {
+				            	   //test visitte technique 
+						             ancienne_date.set(visite_technique._annee,visite_technique._mois,visite_technique._jour);
+				                     nouvelle_date.set(nouveau_visite_technique._annee,nouveau_visite_technique._mois,nouveau_visite_technique._jour);
+				                     if(ancienne_date.after(nouvelle_date)) Toast.makeText(getApplicationContext(), "Erreur saisie date dernière visite technique" ,Toast.LENGTH_LONG).show();  
+						      else  { 
+						    	   //test assurance 
+						             ancienne_date.set(assurance._annee,assurance._mois,assurance._jour);
+				                     nouvelle_date.set(nouveau_assurance._annee,nouveau_assurance._mois,nouveau_assurance._jour);
+				                     if(ancienne_date.after(nouvelle_date)) Toast.makeText(getApplicationContext(), "Erreur saisie date fin d'assurance" ,Toast.LENGTH_LONG).show();  
+				               else  { 
+								    //test suspension 
+								      ancienne_date.set(suspension._annee,suspension._mois,suspension._jour);
+						              nouvelle_date.set(nouveau_suspension._annee,nouveau_suspension._mois,nouveau_suspension._jour);
+						              if(ancienne_date.after(nouvelle_date)) Toast.makeText(getApplicationContext(), "Erreur saisie date du dernier changement de suspension" ,Toast.LENGTH_LONG).show();  
+				              else  {     
+						            //*****mise à jours dans la bd********//
+		                	         gestionnaire_BD.updatePiece(nouveau_vidange);
+		                	         gestionnaire_BD.updatePiece(nouveau_bougies);
+		                	         gestionnaire_BD.updatePiece(nouveau_filtre_huil);
+		                	         gestionnaire_BD.updatePiece(nouveau_filtre_air);
+		                	         gestionnaire_BD.updatePiece(nouveau_filtre_habitacle);
+		                	         gestionnaire_BD.updatePiece(nouveau_huil_boite_vitesse);
+		                	         gestionnaire_BD.updatePiece(nouveau_visite_technique);
+		                	         gestionnaire_BD.updatePiece(nouveau_assurance);
+		                	         gestionnaire_BD.updatePiece(nouveau_courroie);
+		                	         gestionnaire_BD.updatePiece(nouveau_disque_frein);
+		                	         gestionnaire_BD.updatePiece(nouveau_suspension);
+				            	  
+				            	  
+						    	    Toast.makeText(getApplicationContext(), "Enregistré" ,Toast.LENGTH_LONG).show();   
+			                    	Intent toAnotherActivity = new Intent(aView.getContext(),Demarrage.class);
+			                        startActivityForResult(toAnotherActivity, 0);
+			                        }}}}}}}}}}}
+			                }}
+		           			    		);
+	
+            }
+        }, secondsDelayed * 1000);
+            }
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.formulaire, menu);
+		
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+}
