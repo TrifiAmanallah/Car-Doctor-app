@@ -6,16 +6,12 @@ C’est une application Android qui rappel à l’utilisateur les dates ou il do
 Car-Doctor-app/Rapport_de_projet.pdf
 
 # Screen Shots
-![picture](Screen_Shots/Capture_1.png)
 
-![picture](Screen_Shots/Capture_2.png)
+<img src="Screen_Shots/Capture_1.png" width="400"> <img src="Screen_Shots/Capture_2.png" width="400">
 
-![picture](Screen_Shots/Capture_3.png)
+<img src="Screen_Shots/Capture_3.png" width="400"> <img src="Screen_Shots/Capture_4.png" width="400">
 
-![picture](Screen_Shots/Capture_4.png)
+<img src="Screen_Shots/Capture_5.png" width="400"> <img src="Screen_Shots/Capture_6.png" width="400">
 
-![picture](Screen_Shots/Capture_5.png)
+<img src="Screen_Shots/Capture_7.png" width="400">
 
-![picture](Screen_Shots/Capture_6.png)
-
-![picture](Screen_Shots/Capture_7.png)
